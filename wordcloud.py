@@ -1,14 +1,21 @@
+#importing files
 import wordcloud
 from matplotlib import pyplot as plt
+from tkinter import Tk     
+from tkinter.filedialog import askopenfilename
+
+Tk().withdraw()                                                           # we don't want a full GUI, so keep the root window from appearing
+filename = askopenfilename(filetypes = (('text files', 'txt'),))          # show an "Open" dialog box and allows only text file to be selected and return the path to the selected fill
 
 
-fname = input("Enter file name: ")
-file= open(fname,"r",encoding='utf-8') 
+# fname = input("Enter file name: ")
+file= open(filename,"r",encoding='utf-8') 
 file_contents = file.read()
 
 def calculate_frequencies(file_contents):
 
     # Here is a list of punctuations and uninteresting words that will be discarded from the file
+
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     uninteresting_words = ["the", "a", "to", "if", "is", "it", "of", "and", "or", "an", "as", "i", "me", "my", \
     "we", "our", "ours", "you", "your", "yours", "he", "she", "him", "his", "her", "hers", "its", "they", "them", \
@@ -17,6 +24,7 @@ def calculate_frequencies(file_contents):
     "all", "any", "both", "each","for","I","on","not","in","The","so","may","us", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just"]
     
     # Cleaning of txt file
+
     non_punctuation_text=""
     for char in file_contents:
         if char not in punctuations:
@@ -24,10 +32,12 @@ def calculate_frequencies(file_contents):
     words=non_punctuation_text.split()
     clean_words=[]
     frequencies={}
+
     for word in words:
         if word.isalpha():
             if word not in uninteresting_words:
                 clean_words.append(word)
+
     for alpha_word in clean_words:
         if alpha_word not in frequencies:
             frequencies[alpha_word]=1
@@ -41,7 +51,7 @@ def calculate_frequencies(file_contents):
     cloud.generate_from_frequencies(frequencies)
     return cloud.to_array()
 
-
+#displaying
 myimage = calculate_frequencies(file_contents)
 plt.imshow(myimage, interpolation = 'nearest')
 plt.axis('off')
