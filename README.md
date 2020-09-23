@@ -12,4 +12,4 @@
         Word Clouds are not perfect for every situation.
         Data should be optimized for context.
 
-<h6> This Program will allow the user to select the text file from their directory and forms the word cloud out of it</h6>
+<h5> This Program will allow the user to select the text file from their directory and forms the word cloud out of it</h5>
