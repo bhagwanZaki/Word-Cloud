@@ -1,5 +1,5 @@
 # Word-Cloud
-<h2>A tag cloud is a novelty visual representation of text data, typically used to depict keyword metadata on websites, or to visualize free form text. Tags are usually single words, and the importance of each tag is shown with font size or color.</h2>
+<h3>A tag cloud is a novelty visual representation of text data, typically used to depict keyword metadata on websites, or to visualize free form text. Tags are usually single words, and the importance of each tag is shown with font size or color.</h3>
 
 <h3> Advantages of Word Clouds :</h3>
 
